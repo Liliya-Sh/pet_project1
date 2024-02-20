@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Таблица с заказами, которые надо приготовить
+<h2>Таблица с заказами, которые нужно приготовить</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Номер заказа</th>
+      <th>Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders_to_cook %}
+    <tr>
+      <td>{{ order.id }}</td>
+      <td>{% if order.ready_to_delivery == 'Нет' %} В процессе {% else %} Готов {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
+
+
+
+
