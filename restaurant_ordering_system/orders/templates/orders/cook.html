@@ -14,7 +14,7 @@
     {% for order in orders_to_cook %}
     <tr>
       <td>{{ order.id }}</td>
-      <td>{% if order.ready_to_delivery == 'Нет' %} В процессе {% else %} Готов {% endif %}</td>
+      <td>{{ order.status_cook }}</td>
     </tr>
     {% endfor %}
   </tbody>

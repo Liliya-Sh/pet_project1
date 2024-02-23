@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from orders.models import Order
+from orders.models import Order, Menu, Customer, OrderItem
 
 
 def index(request):
@@ -10,15 +10,6 @@ def index(request):
 
 def deliveryman(request):
     return render(request, 'orders/delivery.html')
-
-
-def orders_man(request):
-    order = Order.objects.create(
-        name='Егор',
-        order='Рис с редиской',
-        ready_to_delivery='Нет'
-    )
-    return HttpResponse('Информация добавлена')
 
 
 def cook(request):
